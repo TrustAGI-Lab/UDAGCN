@@ -4,7 +4,7 @@ import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 from argparse import ArgumentParser
 from dual_gnn.cached_gcn_conv import CachedGCNConv
-from dual_gnn.dataset.dblp import DBLP
+from dual_gnn.dataset.DomainData import DomainData
 from dual_gnn.ppmi_conv import PPMIConv
 import random
 import numpy as np
@@ -21,7 +21,7 @@ parser.add_argument("--source", type=str, default='acm')
 parser.add_argument("--target", type=str, default='dblp')
 parser.add_argument("--name", type=str, default='UDAGCN')
 parser.add_argument("--seed", type=int,default=200)
-parser.add_argument("--UDAGCN", type=bool,default=False)
+parser.add_argument("--UDAGCN", type=bool,default=True)
 parser.add_argument("--encoder_dim", type=int, default=16)
 
 
@@ -43,10 +43,10 @@ rate = 0.0
 random.seed(seed)
 np.random.seed(seed)
 torch.manual_seed(seed)
-dataset = DBLP("data/{}".format(args.source), name=args.source)
+dataset = DomainData("data/{}".format(args.source), name=args.source)
 source_data = dataset[0]
 print(source_data)
-dataset = DBLP("data/{}".format(args.target), name=args.target)
+dataset = DomainData("data/{}".format(args.target), name=args.target)
 target_data = dataset[0]
 print(target_data)
 

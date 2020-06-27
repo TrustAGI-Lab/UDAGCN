@@ -9,7 +9,7 @@ from torch_geometric.utils import remove_self_loops
 from torch_geometric.data import Data, DataLoader
 
 
-class DBLP(InMemoryDataset):
+class DomainData(InMemoryDataset):
     r"""The protein-protein interaction networks from the `"Predicting
     Multicellular Function through Multi-layer Tissue Networks"
     <https://arxiv.org/abs/1707.04638>`_ paper, containing positional gene
@@ -42,7 +42,7 @@ class DBLP(InMemoryDataset):
                  pre_filter=None):
         self.name = name
         #self.root = root
-        super(DBLP, self).__init__(root, transform, pre_transform, pre_filter)
+        super(DomainData, self).__init__(root, transform, pre_transform, pre_filter)
 
         self.data, self.slices = torch.load(self.processed_paths[0])
 
