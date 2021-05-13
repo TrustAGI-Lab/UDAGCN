@@ -1,6 +1,6 @@
 ## Unsupervised Domain Adaptive Graph Convolutional Networks
 
-This repository contains the author's implementation in PyTorch for the paper "Unsupervised Domain Adaptive Graph Convolutional Networks".
+This repository contains the author's implementation in PyTorch for the paper "Unsupervised Domain Adaptive Graph Convolutional Networks", WWW-20.
 
 
 ## Dependencies
